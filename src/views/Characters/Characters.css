@@ -1,0 +1,155 @@
+.lang {
+  margin-top: 28px;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #4b4b4b;
+  text-align: right;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.characters__title {
+  margin-top: 76px;
+  text-align: center;
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 41px;
+  letter-spacing: 3px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.characters__title span {
+  font-weight: 800;
+}
+
+.characters__filter {
+  margin-top: 60px;
+}
+
+.characters__filter span {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #212121;
+  margin-right: 18px;
+}
+
+.characters__filter select {
+  background: #f2f2f2;
+  /* Filter */
+
+  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
+  border-radius: 4px;
+}
+
+option {
+  background: #f2f2f2;
+  /* Filter */
+
+  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
+  border-radius: 4px;
+}
+
+/* cards */
+
+.characters__content {
+  margin-top: 30px;
+}
+
+.character__card {
+  background: #f0f0f0;
+  border-radius: 8px;
+  width: 300px;
+  padding: 5px 25px;
+}
+
+.card__title {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.character__info {
+  display: flex;
+  gap: 12px;
+}
+
+.height__info,
+.mass__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.height,
+.mass {
+  border-radius: 100%;
+  border: 3px solid #212121;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.info {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #4b4b4b;
+  margin-top: 6px;
+}
+
+.character__info-2 {
+  margin-top: 6px;
+  display: flex;
+  gap: 13px;
+}
+
+.gender {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: #73d677;
+  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+  padding: 1px 17px;
+}
+
+.birth_year {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: #07d6f2;
+  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+  padding: 1px 17px;
+}
