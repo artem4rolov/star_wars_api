@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import CharacterCard from "../../components/CharacterCard/CharacterCard";
+import Pagination from "../../components/Pagination/Pagination";
 import "./Characters.css";
 
 const Characters = () => {
+  const [cards, setCards] = useState(null);
+  const [pagination, setPagination] = useState(null);
+
+  useEffect(() => {
+    fetch("https://swapi.dev/api/people/")
+      .then((res) => res.json())
+      .then((data) => {
+        setCards(data.results);
+        setPagination(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(pagination);
+
   return (
     <div className="Characters">
       <div className="container">
@@ -9,7 +26,7 @@ const Characters = () => {
         <div className="lang">language</div>
         {/* title */}
         <div className="characters__title">
-          60 <span>Peoples</span> for you to choose your favorite
+          82 <span>Peoples</span> for you to choose your favorite
         </div>
         {/* filter selector */}
         <div className="characters__filter">
@@ -17,40 +34,21 @@ const Characters = () => {
           <select className="box">
             <option value="grapefruit">Грейпфрут</option>
             <option value="lime">Лайм</option>
-            <option selected value="coconut">
-              Кокос
-            </option>
+            <option defaultValue="coconut">Кокос</option>
             <option value="mango">Манго</option>
           </select>
         </div>
-
+        {/* cards */}
         <div className="characters__content">
-          <div className="character__card">
-            <div className="card__title">Jango Fett</div>
-            <div className="character__info">
-              <div className="height__info">
-                <div className="height">
-                  <span>202</span>
-                </div>
-                <span className="info">height</span>
-              </div>
-              <div className="mass__info">
-                <div className="mass">
-                  <span>136</span>
-                </div>
-                <span className="info">mass</span>
-              </div>
-            </div>
-            <div className="character__info-2">
-              <div className="gender">
-                <span>male</span>
-              </div>
-              <div className="birth_year">
-                <span>41.9BBY</span>
-              </div>
-            </div>
-          </div>
+          {cards &&
+            cards.map((card) => {
+              const { name, height, mass, gender, birth_year } = card;
+
+              return <CharacterCard key={name} {...card} />;
+            })}
         </div>
+        {/* pagination */}
+        {pagination && <Pagination pagination={pagination} />}
       </div>
     </div>
   );

@@ -1,0 +1,154 @@
+/* cards */
+
+.characters__content {
+  margin-top: 30px;
+}
+
+.character__card {
+  background: #f0f0f0;
+  border-radius: 8px;
+  width: 240px;
+  padding: 10px 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card__title {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 12px;
+}
+
+.character__info {
+  display: flex;
+  gap: 12px;
+}
+
+.height__info,
+.mass__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.height,
+.mass {
+  border-radius: 100%;
+  border: 3px solid #212121;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.info {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #4b4b4b;
+  margin-top: 6px;
+}
+
+.character__info-2 {
+  margin-top: 6px;
+  display: flex;
+  gap: 13px;
+}
+
+.gender {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: #73d677;
+  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+  padding: 1px 17px;
+}
+
+/* gender colors */
+
+.female {
+  background: #c956ff;
+}
+
+.hermaphrodite {
+  background: #f5db13;
+}
+
+/* если данных нет */
+.none {
+  display: none;
+}
+
+.birth_year {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: #07d6f2;
+  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+  padding: 1px 17px;
+}
+
+@media (max-width: 1024px) {
+  .character__card {
+    background: #f0f0f0;
+    border-radius: 8px;
+    width: 220px;
+    padding: 10px 30px;
+  }
+}
+
+@media (min-width: 830px) and (max-width: 1023px) {
+  .character__card {
+    background: #f0f0f0;
+    border-radius: 8px;
+    width: 260px;
+    padding: 10px 30px;
+  }
+}
+
+@media (min-width: 560px) and (max-width: 767px) {
+  .character__card {
+    background: #f0f0f0;
+    border-radius: 8px;
+    width: 260px;
+    padding: 10px 30px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .character__card {
+    background: #f0f0f0;
+    border-radius: 8px;
+    width: 300px;
+    padding: 10px 30px;
+  }
+}

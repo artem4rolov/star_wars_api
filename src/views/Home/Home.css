@@ -59,7 +59,12 @@
 
 @media (max-width: 768px) {
   .home__content {
+    padding-top: 50px;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .home__subtitle {
+    margin: 64px 0;
   }
 }
