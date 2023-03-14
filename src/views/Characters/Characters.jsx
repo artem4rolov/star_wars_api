@@ -5,9 +5,11 @@ import Loading from "../../components/Loading/Loading";
 
 import "./Characters.css";
 import Modal from "../../components/Modal/Modal";
+import Options from "../../components/Options/Options";
 
 const Characters = () => {
   const [cards, setCards] = useState(null);
+  const [filteredCards, setFilteredCards] = useState(null);
   const [pagination, setPagination] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingChar, setLoadingChar] = useState(false);
@@ -52,6 +54,22 @@ const Characters = () => {
     setOpenModal((prev) => !prev);
   }
 
+  function filterData(value) {
+    if (value === "all") {
+      setFilteredCards(null);
+      console.log(cards);
+      // return cards;
+    }
+
+    if (cards && value !== "all") {
+      const newArr = cards.filter((item) => item.eye_color === value);
+      setFilteredCards(newArr);
+      console.log(filteredCards);
+    }
+
+    // return;
+  }
+
   // console.log(pagination);
 
   return (
@@ -61,18 +79,11 @@ const Characters = () => {
         <div className="lang">language</div>
         {/* title */}
         <div className="characters__title">
-          82 <span>Peoples</span> for you to choose your favorite
+          {pagination ? pagination.count : <Loading />} <span>Peoples</span> for
+          you to choose your favorite
         </div>
         {/* filter selector */}
-        <div className="characters__filter">
-          <span>eye color</span>
-          <select className="box">
-            <option value="grapefruit">Грейпфрут</option>
-            <option value="lime">Лайм</option>
-            <option defaultValue="coconut">Кокос</option>
-            <option value="mango">Манго</option>
-          </select>
-        </div>
+        <Options filterData={filterData} />
         {/* cards */}
         {loading && (
           <div className="loader">
@@ -80,18 +91,28 @@ const Characters = () => {
           </div>
         )}
         <div className="characters__content">
-          {cards &&
-            !loading &&
-            cards.map((card, index) => {
-              return (
-                <CharacterCard
-                  key={card.name}
-                  id={index}
-                  getCharacterInfo={getCharacterInfo}
-                  {...card}
-                />
-              );
-            })}
+          {cards && !filteredCards && !loading
+            ? cards.map((card, index) => {
+                return (
+                  <CharacterCard
+                    key={card.name}
+                    id={index}
+                    getCharacterInfo={getCharacterInfo}
+                    {...card}
+                  />
+                );
+              })
+            : filteredCards !== null &&
+              filteredCards.map((card, index) => {
+                return (
+                  <CharacterCard
+                    key={card.name}
+                    id={index}
+                    getCharacterInfo={getCharacterInfo}
+                    {...card}
+                  />
+                );
+              })}
         </div>
         {/* pagination */}
         {pagination && (

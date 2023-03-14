@@ -61,6 +61,7 @@ const Modal = ({ character, opened, toggleModal, loadingChar }) => {
                   <span>hair color: {character.hair_color}</span>
                   <span>skin color: {character.skin_color}</span>
                   <span>eye color: {character.eye_color}</span>
+                  <span>gender: {character.gender}</span>
                 </div>
 
                 {/* информация о массе и росте персонажа */}

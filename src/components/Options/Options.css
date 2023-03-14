@@ -1,0 +1,14 @@
+.characters__filter {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.characters__filter span {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #212121;
+  margin-right: 18px;
+}

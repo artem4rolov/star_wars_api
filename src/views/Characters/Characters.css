@@ -23,37 +23,12 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.characters__title .lds-roller {
+  scale: 0.7;
+}
+
 .characters__title span {
   font-weight: 800;
-}
-
-.characters__filter {
-  margin-top: 60px;
-}
-
-.characters__filter span {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  color: #212121;
-  margin-right: 18px;
-}
-
-.characters__filter select {
-  background: #f2f2f2;
-  /* Filter */
-
-  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
-  border-radius: 4px;
-}
-
-option {
-  background: #f2f2f2;
-  /* Filter */
-
-  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
-  border-radius: 4px;
 }
 
 .characters__content {
