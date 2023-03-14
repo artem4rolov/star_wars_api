@@ -22,10 +22,13 @@ const Modal = ({ character, opened, toggleModal, loadingChar }) => {
         break;
       case "female":
         setAvatar(Female);
+        break;
       case "hermaphrodite":
         setAvatar(Alien);
+        break;
       case "n/a":
         setAvatar(Alien);
+        break;
       default:
         break;
     }
