@@ -1,0 +1,73 @@
+.pagination {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+  gap: 8px;
+  font-family: "Karla", sans-serif;
+}
+
+.pagination__link-start {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.pagination__link-end {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.pagination__link-end:hover,
+.pagination__link-start:hover {
+  background: #07d6f2;
+}
+
+.pagination__link {
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: gray;
+  background: transparent;
+  display: block;
+  border-radius: 50%;
+  border: none;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+.pagination__link:hover {
+  background: #c956ff;
+  color: #fff;
+}
+
+.current__page {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  gap: 0;
+  align-items: center;
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.pagination > .lds-roller {
+  scale: 0.5;
+}
+
+.none {
+  display: none;
+}

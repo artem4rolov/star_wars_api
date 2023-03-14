@@ -1,26 +1,33 @@
 import React from "react";
 import "./CharacterCard.css";
 
-const CharacterCard = (card) => {
-  const { name, height, mass, gender, birth_year } = card;
+const CharacterCard = (props) => {
+  const { name, height, mass, gender, birth_year, getCharacterInfo } = props;
 
   return (
-    <div className="character__card">
+    <div
+      className="character__card"
+      onClick={() => getCharacterInfo(props.name)}
+    >
       <div className="card__title">{name}</div>
 
       <div className="character__info">
         <div className="height__info">
-          <div className="height">
+          <div className={`${height !== "unknown" ? "height" : "none"}`}>
             <span>{height}</span>
           </div>
-          <span className="info">height</span>
+          <span className={`${height !== "unknown" ? "info" : "none"}`}>
+            height
+          </span>
         </div>
 
         <div className="mass__info">
-          <div className="mass">
+          <div className={`${mass !== "unknown" ? "mass" : "none"}`}>
             <span>{mass}</span>
           </div>
-          <span className="info">mass</span>
+          <span className={`${mass !== "unknown" ? "info" : "none"}`}>
+            mass
+          </span>
         </div>
       </div>
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import Loading from "../Loading/Loading";
+import "./Pagination.css";
 
-const Pagination = ({ pagination }) => {
+const Pagination = ({ pagination, getData, loading }) => {
   const [paginationObj, setPaginationObj] = useState([]);
 
   useEffect(() => {
@@ -15,25 +17,56 @@ const Pagination = ({ pagination }) => {
   }
 
   return (
-    <div>
-      <a
-        href={
-          paginationObj && paginationObj.previous !== null
-            ? paginationObj.previous
-            : " "
-        }
+    <div className="pagination">
+      <button
+        onClick={() => getData("https://swapi.dev/api/people/")}
+        className="pagination__link-start"
       >
-        {getNumberOfPage(paginationObj.previous)}
-      </a>
-      <a
-        href={
-          paginationObj && paginationObj.next !== null
-            ? paginationObj.next
-            : " "
-        }
+        В начало ...
+      </button>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <button
+            onClick={() =>
+              getData(
+                paginationObj && paginationObj.previous !== null
+                  ? paginationObj.previous
+                  : "#"
+              )
+            }
+            className={`pagination__link ${
+              paginationObj.previous ? "" : "none"
+            }`}
+          >
+            {getNumberOfPage(paginationObj.previous)}
+          </button>
+          <span className="current__page">
+            {paginationObj.next && !loading
+              ? parseInt(getNumberOfPage(paginationObj.next)) - 1
+              : 9}
+          </span>
+          <button
+            onClick={() =>
+              getData(
+                paginationObj && paginationObj.next !== null
+                  ? paginationObj.next
+                  : "#"
+              )
+            }
+            className={`pagination__link ${paginationObj.next ? "" : "none"}`}
+          >
+            {getNumberOfPage(paginationObj.next)}
+          </button>
+        </>
+      )}
+      <button
+        onClick={() => getData("https://swapi.dev/api/people/?page=9")}
+        className="pagination__link-end"
       >
-        {getNumberOfPage(paginationObj.next)}
-      </a>
+        ... В конец
+      </button>
     </div>
   );
 };
