@@ -1,0 +1,53 @@
+.error {
+  background: #17002f;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.err_img {
+  width: 490px;
+}
+
+.code {
+  display: flex;
+}
+
+.code span {
+  font-family: "Karla", sans-serif;
+  font-size: 600px;
+  color: rgb(135, 135, 135);
+}
+
+@media (max-width: 1024px) {
+  .err_img {
+    width: 290px;
+  }
+
+  .code span {
+    font-size: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .err_img {
+    width: 140px;
+  }
+
+  .code span {
+    font-size: 180px;
+  }
+}
