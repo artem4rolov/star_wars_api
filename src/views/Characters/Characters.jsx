@@ -3,16 +3,16 @@ import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import Pagination from "../../components/Pagination/Pagination";
 import Loading from "../../components/Loading/Loading";
 
-import Alien from "../../assets/avatar_alien.svg";
-import Male from "../../assets/avatar_male.svg";
-import Female from "../../assets/avatar_female.svg";
-
 import "./Characters.css";
+import Modal from "../../components/Modal/Modal";
 
 const Characters = () => {
   const [cards, setCards] = useState(null);
   const [pagination, setPagination] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [loadingChar, setLoadingChar] = useState(false);
+  const [character, setCharacter] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     getData("https://swapi.dev/api/people/");
@@ -34,14 +34,22 @@ const Characters = () => {
   }
 
   function getCharacterInfo(name) {
+    setOpenModal(true);
+    setLoadingChar(true);
     fetch(`https://swapi.dev/api/people/?search=${name}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.results[0]);
+        setCharacter(data.results[0]);
+        setLoadingChar(false);
       })
       .catch((err) => {
         throw new Error(err);
       });
+  }
+
+  function toggleModal() {
+    setOpenModal((prev) => !prev);
   }
 
   // console.log(pagination);
@@ -94,45 +102,12 @@ const Characters = () => {
           />
         )}
       </div>
-      <div className="moda__wrapper">
-        <div className="modal__window">
-          {/* аватар по полу персонажа */}
-          <div className="avatar">
-            <img src={Alien} alt="" />
-          </div>
-          <div className="modal__info">
-            {/* имя персонажа */}
-            <span className="info__title">Jabba Desilijic Tiure</span>
-
-            {/* данные персонажа */}
-            <div className="info__character-body">
-              <span>hair color: brown: brown</span>
-              <span>skin color - white</span>
-              <span>hair color: brown</span>
-            </div>
-
-            {/* информация о массе и росте персонажа */}
-            <div className="info__height__mass">
-              <div className="height__information">
-                {/* кружок */}
-                <div className="height__inf">
-                  <span>123</span>
-                </div>
-                {/* текст под кружком */}
-                <span className="info">height</span>
-              </div>
-              <div className="mass__information">
-                {/* кружок */}
-                <div className="mass__inf">
-                  <span>2222</span>
-                </div>
-                {/* текст под кружком */}
-                <span className="info">mass</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Modal
+        character={character}
+        opened={openModal}
+        toggleModal={toggleModal}
+        loadingChar={loadingChar}
+      />
     </div>
   );
 };
