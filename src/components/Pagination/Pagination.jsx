@@ -22,7 +22,7 @@ const Pagination = ({ pagination, getData, loading }) => {
         onClick={() => getData("https://swapi.dev/api/people/")}
         className="pagination__link-start"
       >
-        В начало ...
+        Start ...
       </button>
       {loading ? (
         <Loading />
@@ -65,7 +65,7 @@ const Pagination = ({ pagination, getData, loading }) => {
         onClick={() => getData("https://swapi.dev/api/people/?page=9")}
         className="pagination__link-end"
       >
-        ... В конец
+        ... End
       </button>
     </div>
   );

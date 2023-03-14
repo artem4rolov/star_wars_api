@@ -10,6 +10,7 @@ import Options from "../../components/Options/Options";
 const Characters = () => {
   const [cards, setCards] = useState(null);
   const [filteredCards, setFilteredCards] = useState(null);
+  const [wookie, setWookie] = useState(false);
   const [pagination, setPagination] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingChar, setLoadingChar] = useState(false);
@@ -20,10 +21,14 @@ const Characters = () => {
     getData("https://swapi.dev/api/people/");
   }, []);
 
+  useEffect(() => {
+    getData("https://swapi.dev/api/people/");
+  }, [wookie]);
+
   function getData(url) {
     setLoading(true);
 
-    fetch(url)
+    fetch(wookie ? url + "?format=wookiee" : url)
       .then((res) => res.json())
       .then((data) => {
         setCards(data.results);
@@ -38,7 +43,11 @@ const Characters = () => {
   function getCharacterInfo(name) {
     setOpenModal(true);
     setLoadingChar(true);
-    fetch(`https://swapi.dev/api/people/?search=${name}`)
+    fetch(
+      `https://swapi.dev/api/people/?search=${name}${
+        wookie ? "?format=wookiee" : ""
+      }`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data.results[0]);
@@ -76,7 +85,9 @@ const Characters = () => {
     <div className="Characters">
       <div className="container">
         {/* language selector */}
-        <div className="lang">language</div>
+        <div className="lang" onClick={() => setWookie((prev) => !prev)}>
+          language: <span>{wookie ? "wookie" : "en"}</span>
+        </div>
         {/* title */}
         <div className="characters__title">
           {pagination ? pagination.count : <Loading />} <span>Peoples</span> for
@@ -95,7 +106,7 @@ const Characters = () => {
             ? cards.map((card, index) => {
                 return (
                   <CharacterCard
-                    key={card.name}
+                    key={card.name || card.whrascwo}
                     id={index}
                     getCharacterInfo={getCharacterInfo}
                     {...card}
