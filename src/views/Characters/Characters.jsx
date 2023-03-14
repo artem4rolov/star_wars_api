@@ -90,8 +90,14 @@ const Characters = () => {
         </div>
         {/* title */}
         <div className="characters__title">
-          {pagination ? pagination.count : <Loading />} <span>Peoples</span> for
-          you to choose your favorite
+          {pagination ? pagination.count : <Loading />}
+          {wookie ? (
+            <span> rcwochuanaoc</span>
+          ) : (
+            <>
+              <span> Peoples</span> for you to choose your favorite
+            </>
+          )}
         </div>
         {/* filter selector */}
         <Options filterData={filterData} />
@@ -131,6 +137,7 @@ const Characters = () => {
             pagination={pagination}
             getData={getData}
             loading={loading}
+            wookie={wookie}
           />
         )}
       </div>

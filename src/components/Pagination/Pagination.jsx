@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
 import "./Pagination.css";
 
-const Pagination = ({ pagination, getData, loading }) => {
+const Pagination = ({ pagination, getData, loading, wookie }) => {
   const [paginationObj, setPaginationObj] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Pagination = ({ pagination, getData, loading }) => {
         onClick={() => getData("https://swapi.dev/api/people/")}
         className="pagination__link-start"
       >
-        Start ...
+        {wookie ? "naoc ..." : "Start ..."}
       </button>
       {loading ? (
         <Loading />
@@ -65,7 +65,7 @@ const Pagination = ({ pagination, getData, loading }) => {
         onClick={() => getData("https://swapi.dev/api/people/?page=9")}
         className="pagination__link-end"
       >
-        ... End
+        {wookie ? "... wochua" : "... End"}
       </button>
     </div>
   );
